@@ -1,0 +1,111 @@
+@import url('./carousel.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variables */
+:root {
+    --header-grey: #121212;
+    /* Primary BG bör vara din bakgrundsfärg */
+    --primary-bg: #000000;
+    --primary-white: #ffffff;
+    --primary-grey: #1A1A1A;
+    --text-yellow: #F5C518;
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--primary-bg);
+    max-width: 100%;
+    color: #ffffff;
+}
+
+/* Utils */
+.content-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.center {
+    margin: 0 auto;
+}
+
+.d-none {
+    display: none;
+}
+
+.header {
+    background-color: var(--header-grey);
+    width: 100%;
+    padding: 1.5rem;
+    z-index: 999;
+}
+
+.header__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    width: 150px;
+    background-color: yellow;
+}
+
+.header__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header__input {
+    width: 50%;
+    padding: 1rem;
+    border-radius: 2rem 0 0 2rem;
+    border: none;
+}
+
+.header__form-btn {
+    border-radius: 0 2rem 2rem 0;
+    width: 5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.header__fav-btn {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--text-yellow);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* Container för movie cards */
+#cardContainer {
+    display: flex;         /* Använder Flexbox */
+    flex-wrap: wrap;       /* Gör att korten radbryts om det inte finns plats i en rad */
+    justify-content: center; /* Centrerar korten horisontellt */
+    gap: 1rem;             /* Lägger in ett mellanrum mellan korten */
+    padding: 1rem;
+  }
+  
+  /* Styling för enskilda movie cards */
+  .movie-card {
+    background-color: var(--primary-grey); /* Du kan ändra färg här */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    width: 200px;          /* Fast bredd, kan justeras efter behov */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+  .movie-card img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
