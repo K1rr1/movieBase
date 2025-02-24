@@ -25,7 +25,7 @@ import { addToFavorites } from './modules/favorite.js';
 
 
 // väntar tills DOMen är klar
-document.addEventListener('DOMContentLoaded', initIndex ,);
+document.addEventListener('DOMContentLoaded', initIndex);
 
 async function initIndex() {
 

@@ -3,25 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Details</title>
+    <title>Movie</title>
     <link rel="stylesheet" href="./styles/style.css" />
-    <script src="https://kit.fontawesome.com/f300007e95.js" crossorigin="anonymous"></script>
-    <!-- Här laddar vi in en modul som ansvarar för att hämta och visa filmdetaljer -->
-    <script type="module" src="./scripts/modules/movieDetailjs.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f300007e95.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./scripts/script.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="content-wrapper header__flex">
-        <a href="index.html"><img class="header__logo" src="./res/logo.png" alt="logotype" /></a>
-      </div>
-    </header>
+    <header>
+      <header class="header">
+        <div class="content-wrapper header__flex">
+          <a href="index.html"><img class="header__logo" src="./res/logo.png" alt="logotype"/></a>
+        </div>
+      </header>
 
-    <!-- Sektionen där filmdetaljerna kommer att visas -->
+    <!-- Movie Detailed Informatin -->
     <section>
       <div class="content-wrapper">
-        <section class="movie-information" id="movieInformation">
-          <!-- Filmdetaljer laddas dynamiskt här -->
-        </section>
+        <section class="movie-information" id="movieInformation"></section>
       </div>
     </section>
   </body>

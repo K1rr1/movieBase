@@ -1,36 +1,53 @@
+//skapar ett enskilt filmkort
 import { addToFavorites } from "./favorite.js";
 
-export function createMovieCard(movie) {
-    const card = document.createElement('div');
+
+export function createMovieCard(movie){
+    const card = document.createElement ('div');
     card.className = 'movie-card';
 
-    // Poster
-    const img = document.createElement('img');
-    img.src = movie.Poster || './res/default.jpg';
+    //posters
+    const img = document.createElement ('img');
+    img.src = movie.Poster || './res/default.jpg'; // om bilden inte finns lägger en default bild, har inget default.jpg ännu dock
     img.alt = movie.Title || 'Filmposter';
     card.appendChild(img);
 
-    // Filmtitel
+    //film titeln
     const title = document.createElement('h3');
     title.textContent = movie.Title;
     card.appendChild(title);
 
-    // Knapp för att gå till detaljsidan (movie.html)
+    //knappen som navigerar till filmsidan
     const detailsButton = document.createElement('button');
-    detailsButton.textContent = 'Details';
+    detailsButton.textContent = 'details';
     detailsButton.addEventListener('click', () => {
-        // Navigera till movie.html och skicka med imdbID i URL:en
         window.location.href = `movie.html?imdbID=${movie.imdbID}`;
+
     });
     card.appendChild(detailsButton);
 
-    // Knapp för att lägga till favorit
+    //favorit knapp för o spara
     const favoritesButton = document.createElement('button');
     favoritesButton.textContent = 'Add to favorites';
-    favoritesButton.addEventListener('click', () => {
-        addToFavorites(movie);
+    detailsButton.addEventListener('click', ()=> {
+        addToFavorites (movie);
     });
     card.appendChild(favoritesButton);
-
+    
     return card;
+
+    // //favorit funktionen, funkar inte som den ska just nu glöm inte
+    // function addToFavorites(movie){
+    //     let favorites = JSON.parse(localStorage.getItem('favoriteMovies')) || [];
+    //     //kontroll om filmen redans fins i listan
+    //     if (!favorites.find(fav => fav.imdbID === movie.imdbID)){
+    //         favorites.push(movie);
+    //         localStorage.setItem('favoriteMovies', JSON.stringify(favorites));
+    //         alert (`${movie.Title} added to favorites`);
+
+    //     }
+    //     else {
+    //         alert(`${movie.Title} is already in favorites`)
+    //     }
+    // }
 }
