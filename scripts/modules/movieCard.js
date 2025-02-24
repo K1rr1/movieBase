@@ -8,7 +8,7 @@ export function createMovieCard(movie){
 
     //posters
     const img = document.createElement ('img');
-    img.src = movie.Poster || './res/default.jpg'; // om bilden inte finns lägger en default bild, har inget default.jpg ännu dock
+    img.src = movie.Poster || './res/default.jpg'; // om bilden inte finns lägger en default bild
     img.alt = movie.Title || 'Filmposter';
     card.appendChild(img);
 
