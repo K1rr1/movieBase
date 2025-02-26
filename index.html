@@ -15,9 +15,10 @@
   <body>
     <header class="header">
       <div class="content-wrapper header__flex">
-        <a href="index.html"
-          ><img class="header__logo" src="./res/logo.png" alt="logotype"
-        /></a>
+        <a href="index.html">
+          <img class="header__logo" src="./res/logo.png" alt="logotype" />
+        </a>
+        <!-- Sökformulär som hanteras av initSearch() -->
         <form class="header__form" id="searchForm">
           <input
             class="header__input"
@@ -27,9 +28,9 @@
           />
           <button class="header__form-btn" id="searchBtn">Search</button>
         </form>
-        <a href="./favorites.html" class="header__fav-btn" id="favBtn"
-          >Favorites</a
-        >
+        <a href="./favorites.html" class="header__fav-btn" id="favBtn">
+          Favorites
+        </a>
       </div>
     </header>
 
@@ -58,6 +59,7 @@
     <section>
       <div class="content-wrapper center">
         <h2 class="popular-title">Our recommendations</h2>
+        <!-- Observera: id "cardContainer" används här för att rendera rekommendationer -->
         <section class="card-container" id="cardContainer"></section>
       </div>
     </section>

@@ -4,8 +4,10 @@ import { renderTrailers } from './modules/caroussel.js';
 import oData from './data/data.js';
 import { createMovieCard } from './modules/movieCard.js';
 import { getRandomMovies } from './utils/utils.js';
-import { addToFavorites } from './modules/favorite.js';
+import { renderFavorites } from './modules/favoritePage.js';
 import { initMovieDetails } from './modules/movieDeets.js';
+import { initSearch } from './modules/searchFunction.js';
+import { renderSearchResults } from './modules/searchResults.js';
 
 // Väntar tills DOM är klar
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,18 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (path === '/' || path === '/index.html') {
     console.log('index.html');
     initIndex();
-    // Om sökfunktionen ska vara global (i headern)
+    // Initiera sökfunktionen på index.html där sökformuläret finns i headern
     initSearch();
   } else if (path === '/movie.html') {
     console.log('movie.html');
-    // Kör endast movie details-funktionen på movie.html
     initMovieDetails();
   } else if (path === '/favorites.html') {
     console.log('favorites.html');
-    // Lägg in eventuella funktioner för favorites-sidan här
+    // Anropa renderFavorites för att visa favoritfilmerna
+    renderFavorites();
   } else if (path === '/search.html') {
     console.log('search.html');
-    initSearch();
+    // Eftersom search.html enbart ska visa sökresultaten, rendera dessa
+    renderSearchResults();
   }
 });
 
