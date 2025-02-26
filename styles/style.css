@@ -38,7 +38,7 @@ body {
 }
 
 .header {
-    background-color: var(--header-grey);
+    background-color:rgb(138, 23, 23);
     width: 100%;
     padding: 1.5rem;
     z-index: 999;
@@ -52,7 +52,7 @@ body {
 
 .header__logo {
     width: 150px;
-    background-color: yellow;
+    background-color: rgb(129, 109, 19);
 }
 
 .header__form {
@@ -94,18 +94,53 @@ body {
   
   /* Styling för enskilda movie cards */
   .movie-card {
-    background-color: var(--primary-grey); /* Du kan ändra färg här */
-    border-radius: 0.5rem;
+    background-color: rgb(138, 23, 23); 
+    border-radius: 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    width: 200px;          /* Fast bredd, kan justeras efter behov */
+    width: 200px;        /* Fast bredd */
+    height: 400px;       /* Fast höjd */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    overflow: hidden;
     text-align: center;
-    padding: 1rem;
+    /* Vill du centrera innehåll horisontellt i card-body kan du lägga align-items: center; 
+       men oftast vill man ha text i full bredd. */
   }
+  
   .movie-card img{
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center
+ 
   }
+  .poster-container {
+    /* Låt oss säga att vi vill att bilden tar ~60% av kortets höjd */
+    height: 60%; 
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+  }
+  .poster-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    object-position: center;
+  }
+  .card-body {
+  /* De återstående 40% av kortets höjd (eller 160px om du använt px i .poster-container). */
+  height: 40%;
+  width: 100%;
+  padding: 0.5rem;   /* Lite padding för snyggare layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* För att titel och knappar ska fördelas jämnt */
+  align-items: center; /* Om du vill centrera titel och knappar horisontellt */
+  box-sizing: border-box; /* Säkerställ att padding räknas rätt */
+}
+.card-body h3 {
+  margin-bottom: 0.5rem;
+}
