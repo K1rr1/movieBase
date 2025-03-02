@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/movie.css">
     <script
       src="https://kit.fontawesome.com/f300007e95.js"
       crossorigin="anonymous"
@@ -12,12 +15,30 @@
     <script type="module" src="./scripts/script.js"></script>
   </head>
   <body>
-    <header>
-      <header class="header">
-        <div class="content-wrapper header__flex">
-          <a href="index.html"><img class="header__logo" src="./res/logo.png" alt="logotype"/></a>
-        </div>
-      </header>
+    <header class="header">
+      
+      <div class="content-wrapper header__flex">
+
+        <a href="index.html">
+          <img class="header__logo" src="./res/logo.png" alt="logotype" />
+        </a>
+        <!-- Sökformulär som hanteras av initSearch() -->
+        <form class="header__form" id="searchForm">
+          <input
+            class="header__input"
+            id="searchInput"
+            type="text"
+            aria-label="Search"
+          />
+          <button class="header__form-btn" id="searchBtn">Search</button>
+        </form>
+        
+        <a href="./favorites.html" class="header__fav-btn" id="favBtn">
+          Favorites
+        </a>
+      </div>
+    </header>
+
 
     <!-- Movie Detailed Informatin -->
     <section>

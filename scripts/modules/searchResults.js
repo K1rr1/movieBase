@@ -8,18 +8,38 @@ export function renderSearchResults() {
   }
 
   const resultsString = localStorage.getItem('searchResults');
-  if (resultsString) {
-    const movies = JSON.parse(resultsString);
-    cardContainer.innerHTML = ''; // Töm containern
-
-    movies.forEach(movie => {
-      // Använd createMovieCard istället för att manuellt skapa ett kort
-      const card = createMovieCard(movie);
-      cardContainer.appendChild(card);
-    });
-    // Rensa localStorage om du inte vill behålla datan efter visning
-    localStorage.removeItem('searchResults');
-  } else {
+  
+  // Först kollar vi om resultsString finns överhuvudtaget.
+  if (!resultsString) {
+    // Om den inte finns, skriv ut att inga sökresultat hittades.
     cardContainer.innerHTML = '<p>Inga sökresultat hittades.</p>';
+    return;
   }
+
+  let movies;
+  try {
+    // Försök att parsa JSON-datan
+    movies = JSON.parse(resultsString);
+  } catch (error) {
+    // Om det blir fel vid parsning, logga felet och informera användaren
+    console.error("Fel vid parsning av sökresultaten:", error);
+    cardContainer.innerHTML = '<p>Ett fel inträffade vid laddning av sökresultaten.</p>';
+    return;
+  }
+
+  // Om movies inte är en array eller är tom, meddela att inga sökresultat hittades
+  if (!Array.isArray(movies) || movies.length === 0) {
+    cardContainer.innerHTML = '<p>Inga sökresultat hittades.</p>';
+    return;
+  }
+
+  // Rensa containern och rendera varje film
+  cardContainer.innerHTML = '';
+  movies.forEach(movie => {
+    const card = createMovieCard(movie);
+    cardContainer.appendChild(card);
+  });
+
+  // Ta bort sökresultaten från localStorage om du inte vill spara dem
+  localStorage.removeItem('searchResults');
 }

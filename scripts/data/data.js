@@ -4,4 +4,4 @@ const oData = {
 
 export default oData;
 
-//data.js läses in in ordentligt , API:n fetchas som det ska dock
+//data.js läses ej in ordentligt , API:n fetchas som det ska dock

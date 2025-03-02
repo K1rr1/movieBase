@@ -1,5 +1,6 @@
 // Importerar modulerna
 import { fetchTopMovies } from './modules/api.js';
+
 import { renderTrailers } from './modules/caroussel.js';
 import oData from './data/data.js';
 import { createMovieCard } from './modules/movieCard.js';
@@ -13,12 +14,13 @@ import { renderSearchResults } from './modules/searchResults.js';
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   console.log('Current path:', path);
-
+  //lägger initSearch utanför så den är med i alla sidor
+  initSearch();
   if (path === '/' || path === '/index.html') {
     console.log('index.html');
     initIndex();
-    // Initiera sökfunktionen på index.html där sökformuläret finns i headern
-    initSearch();
+    
+    
   } else if (path === '/movie.html') {
     console.log('movie.html');
     initMovieDetails();
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFavorites();
   } else if (path === '/search.html') {
     console.log('search.html');
-    // Eftersom search.html enbart ska visa sökresultaten, rendera dessa
+    //  rendera dessa
     renderSearchResults();
   }
 });

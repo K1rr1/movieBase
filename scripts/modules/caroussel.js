@@ -1,5 +1,6 @@
 
 export function renderTrailers(movie, num) {
+    console.log(movie)
     const iFrameRef = document.createElement(`iframe`);
     iFrameRef.classList.add(`trailers__video`, `trailers__video-${num}`);
     iFrameRef.src = movie.Trailer_link;
@@ -37,3 +38,4 @@ function changeTrailer(event, trailerList, trailerArray) {
     });
 }
 
+//carrousel funkar inte nu va fan?!?!?!

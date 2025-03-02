@@ -1,0 +1,15 @@
+
+#favoritesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+/*mobil vy*/
+@media only screen and (max-width: 600px) {
+  #favoritesContainer {
+    grid-template-columns: 1fr; /* En kolumn på mobila enheter */
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+}

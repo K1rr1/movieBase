@@ -19,8 +19,9 @@ export async function initMovieDetails() {
   }
   
   async function fetchMovieDetailsFromOtherAPI(imdbID) {
-    const apiKey = 'd0c3ab17'; // här ska min api nykel
-    const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`;
+    const apiKey = 'd0c3ab17'; // api nykel
+    const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}&plot=full`;
+
     
     const response = await fetch(url);
     const data = await response.json();
@@ -33,19 +34,34 @@ export async function initMovieDetails() {
   
   function renderMovieDetails(movie) {
     const container = document.getElementById('movieInformation');
-    
-    if (movie) {
-      container.innerHTML = `
-        <h1>${movie.Title}</h1>
-        <img src="${movie.Poster}" alt="${movie.Title}">
-        <p>${movie.Plot || "Ingen beskrivning finns."}</p>
-        <p><strong>Released:</strong> ${movie.Released || "Okänt"}</p>
-        <p><strong>Runtime:</strong> ${movie.Runtime || "Okänt"}</p>
-        <p><strong>Genre:</strong> ${movie.Genre || "Okänt"}</p>
-        <!-- Lägg gärna till fler detaljer -->
-      `;
-    } else {
-      container.innerHTML = `<p>Filmen kunde inte hittas.</p>`;
+    if (!container) {
+      console.error("Container med id 'movieInformation' hittades inte.");
+      return;
     }
+  
+    // Hjälpfunktion för att hantera "N/A"-värden
+    function getInfo(field, fallback) {
+      return (field && field !== "N/A") ? field : fallback;
+    }
+  
+    container.innerHTML = `
+      <div class="movie-details-container">
+        <div class="movie-poster">
+          <img src="${getInfo(movie.Poster, './res/default.jpg')}" alt="${getInfo(movie.Title, 'Filmposter')}">
+        </div>
+        <div class="movie-info">
+          <h1>${getInfo(movie.Title, "No Title")}</h1>
+          <p><strong>Released:</strong> ${getInfo(movie.Released, "Unknown")}</p>
+          <p><strong>Runtime:</strong> ${getInfo(movie.Runtime, "Unknown")}</p>
+          <p><strong>Genre:</strong> ${getInfo(movie.Genre, "Unknown")}</p>
+          <p><strong>IMDb Rating:</strong> ${getInfo(movie.imdbRating, "N/A")}</p>
+          <p><a href="https://www.imdb.com/title/${movie.imdbID}" target="_blank">View on IMDb</a></p>
+        </div>
+      </div>
+      <div class="movie-plot">
+        <h2>Plot</h2>
+        <p>${getInfo(movie.Plot, "No plot available.")}</p>
+      </div>
+    `;
   }
   
