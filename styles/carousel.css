@@ -39,15 +39,7 @@
     z-index: 3;
 }
 
-.trailers::before {
-    background: linear-gradient(to right, var(--primary-bg) 20%, transparent);
-    left: 0px;
-}
 
-.trailers::after {
-    background: linear-gradient(to left, var(--primary-bg) 20%, transparent);
-    right: 0px;
-}
 
 .trailers__container {
     position: relative;
@@ -56,7 +48,7 @@
     align-items: center;
     margin-bottom: 2rem;
     height: 450px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid gold;
 }
 
 .trailers__video {
@@ -105,45 +97,25 @@
     opacity: .4;
 }
 
-@media screen and (max-width: 750px) {
+
+@media only screen and (max-width: 600px) {
     .trailers__container {
-        height: 350px;
+      height: 250px; /* reducerad höjd */
     }
-
-    .trailers__video {
-        height: 150px;
-    }
-
-    .trailers__video-2,
-    .trailers__video-4 {
-        height: 200px;
-    }
-
-    .trailers__video-3 {
-        height: 250px;
-    }
-}
-
-@media screen and (max-width: 550px) {
+    
     .trailers__arrow {
-        height: 30px;
-        width: 30px;
+      height: 30px;
+      width: 30px;
+      right: 1rem; /* justera placering om nödvändigt */
+      left: 1rem;
     }
-
-    .trailers__container {
-        height: 300px;
-    }
-
+    
     .trailers__video {
-        height: 100px;
+      height: 150px;
     }
-
-    .trailers__video-2,
-    .trailers__video-4 {
-        height: 150px;
-    }
-
+    
     .trailers__video-3 {
-        height: 200px;
+      height: 200px;
     }
-}
+  }
+  

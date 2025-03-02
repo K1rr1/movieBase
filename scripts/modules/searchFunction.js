@@ -51,7 +51,7 @@ export function initSearch() {
         //omdirigerars till search.html med resultaten
         window.location.href = 'search.html';
       } catch (error) {
-        // Här  hantera felet, t.ex. visa ett felmeddelande för användaren
+        //  felmeddelande för användaren
         console.error("Något gick fel vid sökningen:", error);
       }
     });

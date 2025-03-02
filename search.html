@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Movie Database - Search</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/search.css"> 
     <script
       src="https://kit.fontawesome.com/f300007e95.js"
       crossorigin="anonymous"
@@ -13,12 +16,27 @@
   </head>
   <body>
     <header class="header">
+      <button class="back-button" onclick="window.history.back();">Tillbaka</button>
       <div class="content-wrapper header__flex">
         <a href="index.html">
           <img class="header__logo" src="./res/logo.png" alt="logotype" />
         </a>
+        <!-- Sökformulär som hanteras av initSearch() -->
+        <form class="header__form" id="searchForm">
+          <input
+            class="header__input"
+            id="searchInput"
+            type="text"
+            aria-label="Search"
+          />
+          <button class="header__form-btn" id="searchBtn">Search</button>
+        </form>
+        
+          Favorites
+        </a>
       </div>
     </header>
+
 
     <!-- Search movies section -->
     <section>

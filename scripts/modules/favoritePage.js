@@ -19,13 +19,8 @@ export function renderFavorites() {
   favorites.forEach(movie => {
     const card = createMovieCard(movie);
 
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove from Favorites';
-    removeBtn.addEventListener('click', () => {
-      removeFromFavorites(movie.imdbID);
-      renderFavorites(); // Uppdatera sidan efter borttag
-    });
-    card.appendChild(removeBtn);
+    
+    
 
     favoritesContainer.appendChild(card);
   });

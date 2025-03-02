@@ -1,0 +1,32 @@
+
+.popular-title {
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
+    border-bottom: 1px solid #F5C518;
+  }
+  
+  
+ .card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 5rem;
+ }
+
+/* mobilvy*/
+
+@media only screen and (max-width: 600px) {
+   .popular-title {
+     font-size: x-large;
+     padding-bottom: 1.5%;
+   }
+   
+   .card-container {
+     grid-template-columns: 1fr; /* Single column layout */
+     padding: 2rem;
+     gap: 0.5rem;
+   }
+ }
+ 
