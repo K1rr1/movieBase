@@ -17,7 +17,7 @@ card.appendChild(posterContainer);
 
 
   // Filmens titel
-  const title = document.createElement('h3');
+  const title = document.createElement('h1');
   title.textContent = movie.Title;
   card.appendChild(title);
 
