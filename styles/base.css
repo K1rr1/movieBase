@@ -26,3 +26,11 @@ body {
   font-style: bold;
   color: rgb(189, 164, 25);
 }
+/* Mobile anpassningar */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 0.9rem;
+    
+    background-position: center;
+  }
+}
